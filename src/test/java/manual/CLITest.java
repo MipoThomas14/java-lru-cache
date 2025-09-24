@@ -1,9 +1,9 @@
-import java.util.*;
+package test.java.manual;
+
 import cacheutil.*;
 
-public class CLI{
+public class CLITest{
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
         LRUCache<Integer, String> cache = new LRUCache<>(4);
 
         cache.put(10, "Apple");
@@ -11,6 +11,5 @@ public class CLI{
         cache.put(8, "Orange");
 
         System.out.println(cache);
-        input.close();
     }
 }
