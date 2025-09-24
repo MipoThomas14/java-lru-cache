@@ -20,4 +20,8 @@ final class Node<K, V> {
     public V getValue(){
         return this.value;
     }
+
+    public void updateValue(V value){
+        this.value = value;
+    }
 }

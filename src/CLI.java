@@ -4,19 +4,13 @@ import cacheutil.*;
 public class CLI{
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        DoublyLinkedList<Integer, String> dll = new DoublyLinkedList<>();
+        LRUCache<Integer, String> cache = new LRUCache<>(4);
 
-        dll.addFirst(4, "Mango");
-        dll.addFirst(3, "Peach");
-        dll.addFirst(2, "Orange");
-        dll.addFirst(1, "Banana");
-        dll.addFirst(0, "Apple");
+        cache.put(10, "Apple");
+        cache.put(5, "Pineapple");
+        cache.put(8, "Orange");
 
-        System.out.print("Add one more fruit: ");
-        dll.addFirst(5, input.nextLine());
-
-        System.out.println("Full list: ");
-        System.out.println(dll.toString());
+        System.out.println(cache);
         input.close();
     }
 }

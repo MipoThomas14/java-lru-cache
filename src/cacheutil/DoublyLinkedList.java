@@ -34,6 +34,23 @@ public class DoublyLinkedList <K, V> {
         addFirst(new Node<>(key, value));
     }
 
+    public void moveToFront(Node<K, V> node){
+        if(node == null){throw new DllException("Invalid empty node.");}
+        if(node == head || node == tail){throw new DllException("Cannot operate on sentinel nodes.");}
+        if(node.prev == null || node.next == null){throw new DllException("Node is not a valid member of DoublyLinkedList.");}
+
+        Node<K, V> prev = node.prev;
+        Node<K, V> next = node.next;
+        
+        prev.next = next;
+        next.prev = prev;
+
+        node.prev = head;
+        node.next = head.next;
+        head.next.prev = node;
+        head.next = node;
+    }
+
     public void remove(Node<K, V> node){
         if(node == null){throw new DllException("Invalid empty node.");}
         if(node == head || node == tail){throw new DllException("Cannot operate on sentinel nodes.");}
