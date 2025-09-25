@@ -1,4 +1,4 @@
-package cacheutil;
+package io.github.mipothomas14.cacheutil;
 
 final class Node<K, V> {
     private K key;

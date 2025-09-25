@@ -1,0 +1,4 @@
+test/java/io/github/mipothomas14/cacheutil/DoublyLinkedListTest.class
+test/java/io/github/mipothomas14/manual/CLITest.class
+test/java/io/github/mipothomas14/cacheutil/SanityTest.class
+test/java/io/github/mipothomas14/cacheutil/LRUCacheTest.class

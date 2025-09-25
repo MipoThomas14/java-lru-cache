@@ -1,4 +1,4 @@
-package cacheutil;
+package io.github.mipothomas14.cacheutil;
 
 class DllException extends RuntimeException {
     public DllException(String err){
