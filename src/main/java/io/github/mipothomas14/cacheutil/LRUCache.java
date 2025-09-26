@@ -29,6 +29,12 @@ public class LRUCache<K, V> {
         
     // }
 
+    private Node<K, V> evictLast(){ // removes least used entry from HashMap and DLL
+        Node<K, V> last = list.removeLast();
+        map.remove(last.getKey());
+        return last;
+    }
+
 
     // todo: update capacity + evict last used!
     public void put(K key, V value){
@@ -39,12 +45,18 @@ public class LRUCache<K, V> {
             list.moveToFront(node);
             System.out.println("updating, not instantiating");
         } else{ // proceed as normal with creating a new node
-            System.out.println("Instantiating, not updating");
             node = new Node<K,V>(key, value);
+            System.out.println("Creating new node: " + node);
             list.addFirst(node);
         }
 
         map.put(key, node);
+        size = list.size;
+        if(size > capacity){
+            Node<K, V> last = evictLast();
+            System.out.println("Evicting: " + last);
+        }
+        size = list.size;
     }
 
     public boolean containsKey(K key){

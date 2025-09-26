@@ -25,8 +25,6 @@ public class DoublyLinkedList <K, V> {
         node.next = head.next; // links new node to it's right neighbor
         head.next.prev = node; // links right neighbor to node
         head.next = node; // links left neighbor to node
-        
-        System.out.println("added new node");
         size++;
     }
 
@@ -88,10 +86,11 @@ public class DoublyLinkedList <K, V> {
         Node<K, V> current = head.next;
         String s = "";
 
-        while(current.next != tail){
+        while(current != tail){
             s += current.getValue().toString();
-            s += " <-> ";
-
+            if(current.next != tail){
+                s += " <-> ";
+            }
             current = current.next;
         }
 
