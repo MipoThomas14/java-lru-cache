@@ -26,8 +26,18 @@ public class LRUCache<K, V> {
 
     // public API
     // public V get(K key){
-        
+        // todo: implement this NOW
+        // cache.get() should return the specified node n based on its key
+        // should also move the n to the front of list, signifiying it as the most receently used node
     // }
+
+    public V get(K key){
+        Node<K, V> node = map.get(key);
+        assert node != null : "Node does not exist in cache";
+
+        list.moveToFront(node);
+        return node.getValue();
+    }
 
     private Node<K, V> evictLast(){ // removes least used entry from HashMap and DLL
         Node<K, V> last = list.removeLast();
@@ -52,7 +62,7 @@ public class LRUCache<K, V> {
 
         map.put(key, node);
         size = list.size;
-        if(size > capacity){
+        if(size > capacity){ // eviction logic based on capacity
             Node<K, V> last = evictLast();
             System.out.println("Evicting: " + last);
         }
