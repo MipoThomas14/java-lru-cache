@@ -44,4 +44,21 @@ public class LRUCacheTest {
         System.out.println("\nFinal list: ");
         cache.printList();
     }
+
+    @Test
+    void get(){
+        LRUCache<Integer, String> cache = new LRUCache<>(5);
+        cache.put(50, "Apple");
+        cache.put(40, "Pineapple");
+        cache.put(30, "Orange");
+        cache.put(20, "Mango");
+        cache.put(10, "Berries");
+
+        System.out.println("list before getting: ");
+        cache.printList();
+
+        System.out.println("\nNode pulled: " + cache.get(30));
+        System.out.print("List after getting: ");
+        cache.printList();
+    }
 }

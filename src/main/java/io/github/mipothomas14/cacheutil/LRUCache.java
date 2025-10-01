@@ -31,12 +31,11 @@ public class LRUCache<K, V> {
         // should also move the n to the front of list, signifiying it as the most receently used node
     // }
 
-    public V get(K key){
+    public Node<K, V> get(K key){
         Node<K, V> node = map.get(key);
-        assert node != null : "Node does not exist in cache";
-
+        // Node<K, V> node = list.traverseTillKey(key);
         list.moveToFront(node);
-        return node.getValue();
+        return node;
     }
 
     private Node<K, V> evictLast(){ // removes least used entry from HashMap and DLL

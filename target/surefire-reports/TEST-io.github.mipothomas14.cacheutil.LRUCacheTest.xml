@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="io.github.mipothomas14.cacheutil.LRUCacheTest" time="0.043" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="io.github.mipothomas14.cacheutil.LRUCacheTest" time="0.045" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,9 +12,10 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/user1/lru-cache/java-lru-cache/target/surefire/surefirebooter-20250926104425650_3.jar /Users/user1/lru-cache/java-lru-cache/target/surefire 2025-09-26T10-44-25_574-jvmRun1 surefire-20250926104425650_1tmp surefire_0-20250926104425650_2tmp"/>
+    <property name="sun.java.command" value="/Users/user1/lru-cache/java-lru-cache/target/surefire/surefirebooter-20251001155038050_3.jar /Users/user1/lru-cache/java-lru-cache/target/surefire 2025-10-01T15-50-37_958-jvmRun1 surefire-20251001155038050_1tmp surefire_0-20251001155038050_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
-    <property name="test" value="LRUCacheTest#cacheEviction"/>
+    <property name="test" value="LRUCacheTest#get"/>
     <property name="surefire.test.class.path" value="/Users/user1/lru-cache/java-lru-cache/target/test-classes:/Users/user1/lru-cache/java-lru-cache/target/classes:/Users/user1/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.2/junit-jupiter-5.10.2.jar:/Users/user1/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/Users/user1/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/user1/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/Users/user1/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/user1/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.2/junit-jupiter-params-5.10.2.jar:/Users/user1/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/Users/user1/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/Users/user1"/>
@@ -29,8 +30,9 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/user1/lru-cache/java-lru-cache/target/surefire/surefirebooter-20250926104425650_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/user1/lru-cache/java-lru-cache/target/surefire/surefirebooter-20251001155038050_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="25"/>
     <property name="user.name" value="user1"/>
     <property name="stdout.encoding" value="UTF-8"/>
@@ -55,17 +57,20 @@
     <property name="java.vm.version" value="25"/>
     <property name="stdin.encoding" value="UTF-8"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
-  <testcase name="cacheEviction" classname="io.github.mipothomas14.cacheutil.LRUCacheTest" time="0.023">
-    <system-out><![CDATA[Creating new node: (10, Apple)
-Creating new node: (20, Pineapple)
+  <testcase name="get" classname="io.github.mipothomas14.cacheutil.LRUCacheTest" time="0.024">
+    <system-out><![CDATA[Creating new node: (50, Apple)
+Creating new node: (40, Pineapple)
 Creating new node: (30, Orange)
-Creating new node: (40, Berries)
-Evicting: (10, Apple)
+Creating new node: (20, Mango)
+Creating new node: (10, Berries)
+list before getting: 
+Berries <-> Mango <-> Orange <-> Pineapple <-> Apple
 
-Final list: 
-Berries <-> Orange <-> Pineapple
+Node pulled: (30, Orange)
+List after getting: Orange <-> Berries <-> Mango <-> Pineapple <-> Apple
 ]]></system-out>
   </testcase>
 </testsuite>
