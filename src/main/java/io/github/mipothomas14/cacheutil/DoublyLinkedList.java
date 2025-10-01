@@ -71,7 +71,6 @@ public class DoublyLinkedList <K, V> {
 
         Node<K, V> last = tail.prev;
         Node<K, V> secondLast = last.prev;
-
         secondLast.next = tail;
         last.prev = secondLast;
         last.next = null;
@@ -79,6 +78,28 @@ public class DoublyLinkedList <K, V> {
 
         size--;
         return last;
+    }
+
+    // traverses till a certain key, then returns corresponding node
+    // returns null otherwise
+    public Node<K, V> traverseTillKey(K key){
+        Node<K, V> node = null;
+        Node<K, V> current = this.head.next;
+
+        while(current != this.tail){
+            if(current.getKey().equals(key)){
+                node = current;
+                break;
+            }
+
+            current = current.next;
+        }
+
+        if(node == null){
+            throw new DllException("key " + key + " is not present in DoublyLinkedList.");
+        }
+
+        return node;
     }
 
     @Override
