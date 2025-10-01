@@ -14,6 +14,23 @@ public class DoublyLinkedListTest {
         System.out.println(dll);
     }
 
+    @Test 
+    void removeLast(){
+        DoublyLinkedList<Integer, String> dll = new DoublyLinkedList<>();
+        dll.addFirst(10, "Apple");
+        dll.addFirst(20, "Cherry");
+        dll.addFirst(5, "Banana");
+
+        System.out.println("list before removal:");
+        System.out.println(dll);
+
+        dll.removeLast();
+        dll.removeLast();
+
+        System.out.println("list before removal:");
+        System.out.println(dll);    
+    }
+
     @Test
     void traverseTillKeyTest(){
         DoublyLinkedList<Integer, String> dll = new DoublyLinkedList<>();

@@ -70,9 +70,11 @@ public class DoublyLinkedList <K, V> {
         }
 
         Node<K, V> last = tail.prev;
+        System.out.println("last: " + last);
         Node<K, V> secondLast = last.prev;
+        System.out.println("second last: " + secondLast);
         secondLast.next = tail;
-        last.prev = secondLast;
+        tail.prev = secondLast;
         last.next = null;
         last.prev = null;
 
